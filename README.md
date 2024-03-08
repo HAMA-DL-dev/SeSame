@@ -1,18 +1,19 @@
-# SeSame
+# SeSame : 3D Semantic Segmentation-Driven Representations for Precise 3D Object Detection
+
 ![qualitative result](./figure/3dbbd_merged.png)
 
-# News
+## News
 **[24.03.08]** All result and model zoo are uploaded.
 
 **[24.02.28]** The result is submitted to KITTI 3D/BEV object detection benchmark with name [SeSame-point](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=3b3e791de572beb66e177976a3fae9e1f82c45a5), [SeSame-voxel](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=5ab0f2fcd328fe476234bedbff7398b3dd7f2546), [SeSame-pillar](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=4b2461007e0a9c58237e20b4f2ec7541a0eeaf03)
 
-# To Do 
+## To Do 
 - [ ] arXiv preprint 
 - [x] Upload whole project including training, validation logs and result on test split
 - [x] Evaluation on KITTI ***val split*** and ***test split***
 - [x] Code conversion ```spconv1.x``` to ```spconv2.x```
 
-# Model Zoo
+## Model Zoo
 ### 3D detection (car)
 |model|AP_easy|AP_mod|AP_hard|config|pretrained weight|
 |------|---|---|---|---|---|
@@ -29,7 +30,7 @@
 
 
 
-# Contents
+## Contents
 - [Requirements](#requirements)
 - [Setup](#setup)
 - [Datasets](#datasets)
