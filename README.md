@@ -8,7 +8,7 @@
 **[24.02.28]** The result is submitted to KITTI 3D/BEV object detection benchmark with name [SeSame-point](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=3b3e791de572beb66e177976a3fae9e1f82c45a5), [SeSame-voxel](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=5ab0f2fcd328fe476234bedbff7398b3dd7f2546), [SeSame-pillar](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=4b2461007e0a9c58237e20b4f2ec7541a0eeaf03)
 
 ## To Do 
-- [ ] Preprint of our work is available at [this link](https://drive.google.com/file/d/1kqy2ygKC1Zm8pEp7hWK9hHKMy9nM1_8J/view?usp=drive_link) 
+- [ ] Preprint of our work will be available after review process 
 - [x] Upload whole project including training, validation logs and result on test split
 - [x] Evaluation on KITTI ***val split*** and ***test split***
 - [x] Code conversion ```spconv1.x``` to ```spconv2.x```
