@@ -88,21 +88,28 @@ pip install -r requirements.txt
 For more information of `*.pkl` files, reference this documentation : [mmdetection3d-create-kitti-datset](https://mmdetection3d.readthedocs.io/en/v0.17.1/datasets/kitti_det.html#create-kitti-dataset)
 
 ## Segment point clouds
+**[Step1]** Load pretrained weights at this [link](https://github.com/xinge008/Cylinder3D?tab=readme-ov-file#pretrained-models)
 
-Before this step, please modify a location value named `TRAINING_PATH` and `SEMANTIC_KITTI_PATH` in `painting_cylinder3d.py`
-```python
-TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"                     # <!--- point clouds from KITTI 3D object detection dataset
-SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" # <!--- semantic map of Semantic KITTI dataset
+**[Step2]** Modify related paths like below
+
+- `semantickitti.yaml` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/config/semantickitti.yaml#L64) : path to the downloaded weight
+- `painting_cylinder3d.py` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/painting_cylinder3d.py) : path to your KITTI and semantic-kitti configs
+    ```python
+    TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"                        # <!--- point clouds from KITTI 3D object detection dataset
+    SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" # <!--- semantic map of Semantic KITTI dataset
+    ```
+    
+**[Step3]** Segment raw point clouds from KITTI object detection dataset 
 ```
-
-```
-cd segment/
-python demo_folder.py \
---demo-folder /path/to/your/kitti/training/velodyne/ \
---save-folder /path/to/your/labels_cylinder3d/
-
 cd /path/to/your/kitti/training
 mkdir segmented_lidar
+mkdir labels_cylinder3d
+cd /path/to/your/SeSame/segment/
+
+python demo_folder.py \
+--demo-folder /path/to/your/kitti/training/velodyne/ \
+--save-folder /path/to/your/kitti/training/labels_cylinder3d/
+
 python pointpainting_cylinder3d.py
 ```
 
