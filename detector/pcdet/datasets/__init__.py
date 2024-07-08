@@ -6,7 +6,8 @@ from pcdet.utils import common_utils
 
 from .dataset import DatasetTemplate
 from .kitti.kitti_dataset import KittiDataset
-from .kitti.painted_kitti_dataset import PaintedKittiDataset
+# from .kitti.painted_kitti_dataset import PaintedKittiDataset
+from .kitti.sem_painted_kitti_dataset import PaintedKittiDataset
 from .nuscenes.nuscenes_dataset import NuScenesDataset
 from .waymo.waymo_dataset import WaymoDataset
 
