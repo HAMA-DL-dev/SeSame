@@ -1,8 +1,10 @@
-# SeSame : 3D Semantic Segmentation-Driven Representations for Precise 3D Object Detection
+# SeSame: Simple, Easy 3D Object Detection with Point-Wise Semantics
 
-![qualitative result](./figure/3dbbd_merged.png)
+![qualitative result](./figure/whole_flow.jpg)
 
 ## News
+**[24.07.08]** Fix bugs 
+
 **[24.03.08]** All result and model zoo are uploaded.
 
 **[24.02.28]** The result is submitted to KITTI 3D/BEV object detection benchmark with name [SeSame-point](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=3b3e791de572beb66e177976a3fae9e1f82c45a5), [SeSame-voxel](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=5ab0f2fcd328fe476234bedbff7398b3dd7f2546), [SeSame-pillar](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=4b2461007e0a9c58237e20b4f2ec7541a0eeaf03)
