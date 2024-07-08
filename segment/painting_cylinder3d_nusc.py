@@ -14,11 +14,8 @@ import pcdet_utils.calibration_kitti as calibration_kitti
 
 import time 
 
-# TRAINING_PATH = "/home/mmc-server3/Server/Datasets/Kitti/training/"
-# TRAINING_PATH = "/home/mmc-server3/Server/Datasets/Kitti/testing/"
-
-DATASET_PATH = "/home/mmc-server3/Server/Datasets/nuscenes/" 
-CLASS_MAP_NUSC = "/home/mmc-server3/Server/Users/Hayeon/Cylinder3D-updated-CUDA/config/label_mapping/nuscenes.yaml"
+DATASET_PATH = "/path/to/your/nuscenes/" 
+CLASS_MAP_NUSC = "/path/to/your/sesame/segment/config/label_mapping/nuscenes.yaml"
 
 CLASSES = ["noise", "car","truck","bus", "trailer", "construction_vehicle", "pedestrian", "motorcycle", "bicycle", "traffic_cone", "barrier" ]
 
@@ -98,8 +95,7 @@ class Painter:
             assert len(labels) == points.shape[0],f"Numbers of points({points.shape[0]}) and labels({len(labels)}) are unmatched"
             
             points_sem_scored = self.augment_lidar_score(points,labels)
-            np.save("/home/mmc-server3/Server/Datasets2/nuscenes/painted_lidar/" + ("%06d.npy" % idx), points_sem_scored)
-#             np.save(self.save_path + ("%06d.npy" % idx), points_sem_scored)
+            np.save(self.save_path + ("%06d.npy" % idx), points_sem_scored)
             
 if __name__ == '__main__':
     painter = Painter()
