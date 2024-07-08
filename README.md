@@ -91,21 +91,23 @@ conda env create -f environment.yaml
 For more information of `*.pkl` files, reference this documentation : [mmdetection3d-create-kitti-datset](https://mmdetection3d.readthedocs.io/en/v0.17.1/datasets/kitti_det.html#create-kitti-dataset)
 
 ## Segment point clouds
-**[Step1]** Load pretrained weights at this [link](https://github.com/xinge008/Cylinder3D?tab=readme-ov-file#pretrained-models)
+#### [Step1] Load pretrained weights at this [link](https://github.com/xinge008/Cylinder3D?tab=readme-ov-file#pretrained-models)
 
-**[Step2]** Modify related paths like below
+#### [Step2] Modify related paths like below
 
-- `semantickitti.yaml` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/config/semantickitti.yaml#L64) : path to the downloaded weight
-- `painting_cylinder3d.py` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/painting_cylinder3d.py) : path to your KITTI and semantic-kitti configs
-    ```python
-    # point clouds from KITTI 3D object detection dataset
-    TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"
+`semantickitti.yaml` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/config/semantickitti.yaml#L64) : path to the downloaded weight
 
-    # semantic map of Semantic KITTI dataset
-    SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" 
-    ```
+`painting_cylinder3d.py` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/painting_cylinder3d.py) : path to your KITTI and semantic-kitti configs
+
+```python
+# point clouds from KITTI 3D object detection dataset
+TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"
+
+# semantic map of Semantic KITTI dataset
+SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" 
+```
     
-**[Step3]** Segment raw point clouds from KITTI object detection dataset 
+#### [Step3] Segment raw point clouds from KITTI object detection dataset 
 ```
 cd /path/to/your/kitti/training
 mkdir segmented_lidar
@@ -128,6 +130,11 @@ python -m pcdet.datasets.kitti.sem_painted_kitti_dataset create_kitti_infos tool
 ## Train
 ```bash
 cd ~/SeSame/detector/tools
+python train.py --cfg_file cfgs/kitti_models/${model.yaml} --batch_size 16 --epochs 80 --workers 16 --ckpt_save_interval 5
+```
+
+#### example
+```bash
 python train.py --cfg_file cfgs/kitti_models/pointpillar_sem_painted.yaml --batch_size 16 --epochs 80 --workers 16 --ckpt_save_interval 5
 ```
 
@@ -137,6 +144,11 @@ You can resume training with option `--start_epoch ${numbers of epoch}`
 
 
 ## Test
+```bash
+python test.py --cfg_file ${configuration file of each model with *.yaml} --batch_size ${4,8,16} --workers 4 --ckpt ${path to *.pth file} --save_to_file
+```
+
+#### example
 ```bash
 python test.py --cfg_file ../output/kitti_models/pointpillar_sem_painted/default/pointpillar_sem_painted.yaml --batch_size 16 --workers 4 --ckpt ../output/kitti_models/pointpillar_sem_painted/default/ckpt/checkpoint_epoch_70.pth --save_to_file
 ```
