@@ -44,7 +44,7 @@
 - [Acknowledgments](#acknowledgments)
 
 ## Requirements
-- CUDA 10.1
+- CUDA 10.2
 - NVIDIA TITAN RTX
 - pcdet : 0.3.0+0
 - spconv : 2.3.6
@@ -52,14 +52,15 @@
 - torchvision : 0.11.2
 - torch-scatter : 2.1.2
 
+If your CUDA version is not 10.2, it might be better to install those packages on your own.
+
+The `environment.yaml` is suitable for CUDA 10.2 users. 
+
 ## Setup
 ```bash
 git clone https://github.com/HAMA-DL-dev/SeSame.git
 cd SeSame
-
-conda create -n sesame python=3.8
-conda activate sesame
-pip install -r requirements.txt
+conda env create -f environment.yaml
 ```
 
 
@@ -97,8 +98,11 @@ For more information of `*.pkl` files, reference this documentation : [mmdetecti
 - `semantickitti.yaml` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/config/semantickitti.yaml#L64) : path to the downloaded weight
 - `painting_cylinder3d.py` [(link)](https://github.com/HAMA-DL-dev/SeSame/blob/main/segment/painting_cylinder3d.py) : path to your KITTI and semantic-kitti configs
     ```python
-    TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"                        # <!--- point clouds from KITTI 3D object detection dataset
-    SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" # <!--- semantic map of Semantic KITTI dataset
+    # point clouds from KITTI 3D object detection dataset
+    TRAINING_PATH = "/path/to/your/SeSame/detector/data/kitti/training/velodyne/"
+
+    # semantic map of Semantic KITTI dataset
+    SEMANTIC_KITTI_PATH = "/path/to/your/SeSame/detector/tools/cfgs/dataset_configs/semantic-kitti.yaml" 
     ```
     
 **[Step3]** Segment raw point clouds from KITTI object detection dataset 
@@ -108,9 +112,7 @@ mkdir segmented_lidar
 mkdir labels_cylinder3d
 cd /path/to/your/SeSame/segment/
 
-python demo_folder.py \
---demo-folder /path/to/your/kitti/training/velodyne/ \
---save-folder /path/to/your/kitti/training/labels_cylinder3d/
+python demo_folder.py --demo-folder /path/to/your/kitti/training/velodyne/ --save-folder /path/to/your/kitti/training/labels_cylinder3d/
 
 python pointpainting_cylinder3d.py
 ```
@@ -126,11 +128,7 @@ python -m pcdet.datasets.kitti.sem_painted_kitti_dataset create_kitti_infos tool
 ## Train
 ```bash
 cd ~/SeSame/detector/tools
-
-CUDA_VISIBLE_DEVICES=2 python train.py \
---cfg_file cfgs/kitti_models/pointpillar_sem_painted.yaml \
---batch_size 16 --epochs 80 --workers 16 \
---ckpt_save_interval 5
+python train.py --cfg_file cfgs/kitti_models/pointpillar_sem_painted.yaml --batch_size 16 --epochs 80 --workers 16 --ckpt_save_interval 5
 ```
 
 If you stop the training process for mistake, don't worry. 
@@ -140,12 +138,7 @@ You can resume training with option `--start_epoch ${numbers of epoch}`
 
 ## Test
 ```bash
-CUDA_VISIBLE_DEVICES=3 python test.py \
---cfg_file ../output/kitti_models/pointpillar_sem_painted/default/pointpillar_sem_painted.yaml \
---batch_size 16 \
---workers 4 \
---ckpt ../output/kitti_models/pointpillar_sem_painted/default/ckpt/checkpoint_epoch_70.pth \
---save_to_file
+python test.py --cfg_file ../output/kitti_models/pointpillar_sem_painted/default/pointpillar_sem_painted.yaml --batch_size 16 --workers 4 --ckpt ../output/kitti_models/pointpillar_sem_painted/default/ckpt/checkpoint_epoch_70.pth --save_to_file
 ```
 
 # Acknowledgments
