@@ -3,6 +3,11 @@
 ![qualitative result](./figure/whole_flow.jpg)
 
 ## News
+**[24.07.31]** Update existing KITTI entry due to the expiration of submission 
+- [SeSame-point](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=246df06571519a2fd61045424524b724fb8fffa3)
+- [SeSame-voxel](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=7275a9efa5344149beb0a4051392a6e9039c1f52)
+- [SeSame-pillar](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=4cdef7fed94a42226613f3273332791ce17acf55)
+
 **[24.07.08]** Fix bugs 
 
 **[24.03.08]** All result and model zoo are uploaded.
