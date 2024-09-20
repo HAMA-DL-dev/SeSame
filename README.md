@@ -3,6 +3,8 @@
 ![qualitative result](./figure/whole_flow.jpg)
 
 ## News
+**[24.09.20] 🎉 Congratulations! The paper has been accepted to ACCV 2024 🎉
+
 **[24.07.31]** Update existing KITTI entry due to the expiration of submission 
 - [SeSame-point](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=246df06571519a2fd61045424524b724fb8fffa3)
 - [SeSame-voxel](https://www.cvlibs.net/datasets/kitti/eval_object_detail.php?&result=7275a9efa5344149beb0a4051392a6e9039c1f52)
