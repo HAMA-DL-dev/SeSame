@@ -7,8 +7,9 @@
 <a src="https://img.shields.io/badge/cs.CV-2404.12389-b31b1b?logo=arxiv&logoColor=red" href="https://arxiv.org/abs/2403.06501">  
 <img src="https://img.shields.io/badge/cs.CV-2404.12389-b31b1b?logo=arxiv&logoColor=red"></a>
 
-
-![qualitative result](./figure/whole_flow.jpg)
+<div align="center">
+    <img src="./figure/whole_flow.jpg" alt="overview" width="60%">
+</div>
 
 ## News
 **[24.09.20]** 🎉 Congratulations! The paper has been accepted to ACCV 2024 ! 🎉
