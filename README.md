@@ -171,3 +171,15 @@ python test.py --cfg_file ../output/kitti_models/pointpillar_sem_painted/default
 
 # Acknowledgments
 Thanks for the opensource codes from [Cylinder3D](https://github.com/xinge008/Cylinder3D), [PointPainting](https://github.com/Song-Jingyu/PointPainting) and [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
+
+# Citation
+```
+@InProceedings{O_2024_ACCV,
+    author    = {O, Hayeon and Yang, Chanuk and Huh, Kunsoo},
+    title     = {SeSame: Simple, Easy 3D Object Detection with Point-Wise Semantics},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    month     = {December},
+    year      = {2024},
+    pages     = {2889-2905}
+}
+```
